@@ -5,8 +5,7 @@ namespace Singleton
 {
     public sealed class FileWorkerSingleton
     {
-
-        private static readonly Lazy<FileWorkerSingleton> instance = new Lazy<FileWorkerSingleton>(() => new FileWorkerSingleton());
+        private static readonly Lazy<FileWorkerSingleton> _instance = new Lazy<FileWorkerSingleton>(() => new FileWorkerSingleton());
 
         public string FilePath { get; }
         public string Text { get; private set; }
@@ -15,7 +14,7 @@ namespace Singleton
         {
             get
             {
-                return instance.Value;
+                return _instance.Value;
             }
         }
 
