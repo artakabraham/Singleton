@@ -6,14 +6,14 @@ namespace Singleton
     {
         static void Main(string[] args)
         {
-            var text1 = new FileWorker();
-            var text2 = new FileWorker();
+            var singleton1 = FileWorkerSingleton.Instance;
+            var singleton2 = FileWorkerSingleton.Instance;
 
-            text1.WriteText("Loerm Ipsum");
-            text2.WriteText("Hello World");
+            singleton1.WriteText("Loerm Ipsum");
+            singleton2.WriteText("Hello World");
 
-            text1.Save();
-            text2.Save();
+            singleton1.Save();
+            singleton2.Save();
         }
     }
 }
