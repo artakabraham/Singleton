@@ -2,12 +2,12 @@
 
 namespace Singleton
 {
-    public class FileWorker
+    public class FileWorkerSibgleton
     {
         public string FilePath { get; }
         public string Text { get; private set; }
 
-        public FileWorker()
+        private FileWorkerSibgleton()
         {
             FilePath = "test.txt";
             ReadtextFromFile();
