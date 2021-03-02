@@ -1,13 +1,25 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 
 namespace Singleton
 {
-    public class FileWorkerSibgleton
+    public sealed class FileWorkerSingleton
     {
+
+        private static readonly Lazy<FileWorkerSingleton> instance = new Lazy<FileWorkerSingleton>(() => new FileWorkerSingleton());
+
         public string FilePath { get; }
         public string Text { get; private set; }
 
-        private FileWorkerSibgleton()
+        public static FileWorkerSingleton Instance
+        {
+            get
+            {
+                return instance.Value;
+            }
+        }
+
+        private FileWorkerSingleton()
         {
             FilePath = "test.txt";
             ReadtextFromFile();
